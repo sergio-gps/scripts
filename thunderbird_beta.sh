@@ -13,4 +13,4 @@ rm "${locFilePath}"
 
 sudo ln -s /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
 
-sudo wget --no-clobber https://raw.githubusercontent.com/mozilla/sumo-kb/main/installing-thunderbird-linux/thunderbird.desktop -P /usr/local/share/applications
+sudo wget --no-clobber https://raw.githubusercontent.com/mozilla/sumo-kb/main/installing-thunderbird-linux/thunderbird.desktop -P /usr/share/applications
