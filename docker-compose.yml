@@ -1,0 +1,25 @@
+---
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - TRANSMISSION_WEB_HOME= #optional
+      - USER=dietpi
+      - PASS=#rellenar
+      - WHITELIST=#rellenar
+      - PEERPORT= #optional
+      - HOST_WHITELIST= #optional
+    volumes:
+      - /home/dietpi/.config/transmission-daemon:/config
+      - /home/dietpi/completados:/completados
+      - /home/dietpi/casi:/casi
+      - /home/dietpi/torrents:/torrents
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
