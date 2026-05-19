@@ -1,0 +1,23 @@
+# Opción 1: Repositorio principal y actualizaciones (Espejo de España)
+Types: deb
+URIs: http://ftp.es.debian.org/debian/
+Suites: trixie trixie-updates
+Components: main non-free-firmware contrib
+Enabled: no
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# Opción 2: Repositorio principal y actualizaciones (Espejo Global / CDN)
+Types: deb
+URIs: https://deb.debian.org/debian/
+Suites: trixie trixie-updates
+Components: main non-free-firmware contrib
+Enabled: yes
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# Actualizaciones de seguridad
+Types: deb
+URIs: https://security.debian.org/debian-security/
+Suites: trixie-security
+Components: main non-free-firmware contrib
+Enabled: yes
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
