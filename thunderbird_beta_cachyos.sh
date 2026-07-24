@@ -113,12 +113,12 @@ fi
 echo "Creando enlace binario: ${BIN_LINK}"
 sudo ln -sfn "${INSTALL_DIR}/thunderbird" "$BIN_LINK"
 
-# ---------------------------
 # .desktop para integración del lanzador
 echo "Creando lanzador desktop..."
 sudo mkdir -p /usr/local/share/applications
 
-sudo tee "$DESKTOP_FILE_SYSTEM" >/dev/null <<EOF
+if [[ ! -e "$DESKTOP_FILE_SYSTEM" ]]; then
+  sudo tee "$DESKTOP_FILE_SYSTEM" >/dev/null <<EOF
 [Desktop Entry]
 Version=1.0
 Name=Thunderbird Beta
@@ -132,6 +132,9 @@ Categories=Network;Email;
 MimeType=x-scheme-handler/mailto;
 StartupNotify=true
 EOF
+else
+  echo "El archivo desktop ya existe, no se modifica: $DESKTOP_FILE_SYSTEM"
+fi
 
 # Cache de escritorio (si está disponible)
 if command -v update-desktop-database >/dev/null 2>&1; then
